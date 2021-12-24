@@ -1,0 +1,94 @@
+// When color definition differs for dark and light variant
+// it gets @if ed depending on $variant
+
+$nord0: #2e3440;
+$nord1: #3b4252;
+$nord2: #434c5e;
+$nord3: #4c566a;
+$nord4: #d8dee9;
+$nord5: #e5e9f0;
+$nord6: #eceff4;
+$nord7: #8fbcbb;
+$nord8: #88c0d0;
+$nord9: #81a1c1;
+$nord10: #5e81ac;
+$nord11: #bf616a;
+$nord12: #d08770;
+$nord13: #ebcb8b;
+$nord14: #a3be8c;
+$nord15: #b48ead;
+
+$base_color: $nord0;
+$text_color: $nord6;
+$bg_color: $nord2;
+$fg_color: $nord4;
+
+$selected_fg_color: $nord0;
+$selected_bg_color: $nord9;
+$selected_borders_color: $nord3;
+$borders_color: $nord1;
+$alt_borders_color: $nord0;
+$borders_edge: transparentize($fg_color, 0.93);
+$link_color: $nord9;
+$link_visited_color: $nord15;
+$top_hilight: $borders_edge;
+$dark_fill: $nord0;
+$headerbar_color: $nord1;
+$menu_color: $nord3;
+$popover_bg_color: $bg_color;
+$popover_hover_color: $nord3;
+
+$scrollbar_bg_color: $nord1;
+$scrollbar_slider_color: $nord3;
+$scrollbar_slider_hover_color: $nord4;
+$scrollbar_slider_active_color: $nord4;
+
+$warning_color: $nord12;
+$error_color: $nord11;
+$success_color: $nord14;
+$destructive_color: $nord13;
+
+$osd_fg_color: $nord5;
+$osd_text_color: $nord5;
+$osd_bg_color: transparentize($nord3, 0.1);
+$osd_insensitive_bg_color: transparentize(mix($osd_fg_color, opacify($osd_bg_color, 1), 10%), 0.5);
+$osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
+$osd_borders_color: transparentize($nord3, 0.5);
+
+$sidebar_bg_color: $nord1;
+$base_hover_color: $nord3;
+
+$tooltip_borders_color: transparentize($nord3, 0.9);
+$shadow_color: transparentize($nord0, 0.9);
+
+$drop_target_color: #4e9a06;
+
+//insensitive state derived colors
+$insensitive_fg_color: mix($fg_color, $bg_color, 50%);
+$insensitive_bg_color: mix($bg_color, $base_color, 60%);
+$insensitive_borders_color: $borders_color;
+
+//colors for the backdrop state, derived from the main colors.
+$backdrop_base_color: lighten($base_color, 1%);
+$backdrop_text_color: mix($text_color, $backdrop_base_color, 80%);
+$backdrop_bg_color: $bg_color;
+$backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%);
+$backdrop_insensitive_color: lighten($backdrop_bg_color, 15%);
+$backdrop_selected_fg_color: $backdrop_text_color;
+$backdrop_borders_color: mix($borders_color, $bg_color, 80%);
+$backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
+$backdrop_sidebar_bg_color: mix($backdrop_bg_color, $backdrop_base_color, 50%);
+
+$backdrop_scrollbar_bg_color: darken($backdrop_bg_color, 3%);
+$backdrop_scrollbar_slider_color: mix($backdrop_fg_color, $backdrop_bg_color, 40%);
+
+$backdrop_menu_color: if($variant == 'light', $backdrop_base_color, mix($backdrop_bg_color, $backdrop_base_color, 20%));
+
+//special cased widget colors
+$suggested_bg_color: $selected_bg_color;
+$suggested_border_color: $selected_borders_color;
+$progress_bg_color: $selected_bg_color;
+$progress_border_color: $selected_borders_color;
+$checkradio_bg_color: if($variant == 'light', $selected_bg_color, lighten($selected_bg_color,10%));
+$checkradio_fg_color: $selected_fg_color;
+$checkradio_borders_color: if($variant == 'light', darken($checkradio_bg_color,20%), darken($checkradio_bg_color,40%));
